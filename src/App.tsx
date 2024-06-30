@@ -31,7 +31,7 @@ function deriveActivePlayer(
 function deriveGameBoard(
   gameTurns: { player: string; square: { row: number; col: number } }[]
 ) {
-  let gameBoard = [...INITIAL_GAME_BOARD.map((array) => [...array])];
+  const gameBoard = [...INITIAL_GAME_BOARD.map((array) => [...array])];
 
   for (const turn of gameTurns) {
     const { square, player } = turn;
@@ -47,7 +47,7 @@ function deriveWinner(
   gameBoard: (string | null)[][],
   player: { [key: string]: string }
 ) {
-  let winner: string | undefined;
+  let winner: string | null = null;
 
   for (const combination of WINNING_COMBINATIONS) {
     const firstSquareSymbol =
@@ -122,7 +122,7 @@ const App: React.FC = () => {
           <Player
             initialName={PLAYERS.O}
             symbol="Y"
-            isActive={activePlayer === "Y"}
+            isActive={activePlayer === "O"}
             onChangeName={handlePlayerNameChanges}
           />
         </ol>

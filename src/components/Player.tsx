@@ -18,11 +18,10 @@ const Player: React.FC<PlayerProps> = ({
   const [isEditing, setIsEditing] = useState(false);
 
   function handleEditClick() {
+    if (isEditing) {
+      onChangeName(symbol, playerName);
+    }
     setIsEditing((editing) => !editing);
-  }
-
-  if (isEditing) {
-    onChangeName(symbol, playerName);
   }
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
