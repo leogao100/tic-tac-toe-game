@@ -1,0 +1,315 @@
+/* Importing Google Fonts 'Caprasimo' and 'Roboto Slab' */
+@import url("https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Slab:wght@400;700&display=swap");
+
+/* Setting box-sizing to border-box for all elements */
+* {
+  box-sizing: border-box;
+}
+/* Setting base font, line-height, color, and text rendering optimizations for the HTML element */
+html {
+  font-family: "Roboto slab", sans-serif;
+  line-height: 1.5;
+
+  color: #ebe7ef;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: greyaliased;
+  -webkit-text-size-adjust: 100%;
+}
+/* Applying a radial gradient background with an image, setting repeat and size for the body element */
+body {
+  background: radial-gradient(
+      circle at top,
+      rgba(241, 210, 70, 0.98),
+      rgba(250, 176, 103, 0.87)
+    ),
+    url("bg-pattern-dark.png");
+  background-repeat: repeat;
+  background-size: 100% 100%, 20% 20%;
+  min-height: 110rem;
+}
+/* Centering the header content */
+header {
+  text-align: center;
+}
+/* Styling the header image with size, fit, margin, and drop-shadow */
+header img {
+  width: 8rem;
+  object-fit: contain;
+  margin: 3rem auto 1rem auto;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+}
+
+/* Applying custom font and styles for h1 element */
+h1 {
+  font-family: 'Caprasimo', cursive;
+  font-size: 3rem;
+  margin: 3rem auto 1rem auto;
+  color: #3f3b00;
+}
+
+/* Setting maximum width, margin, padding, border-radius, background, box-shadow, and position for the game container */
+#game-container {
+  max-width: 45rem;
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 0.333rem;
+  background: linear-gradient(#383624, #282617);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+/* Removing list styling, adding margin, padding, and centering content for the players list */
+#players {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Styling individual list items within the players list, adding border and layout properties */
+#players li {
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+/* Highlighting active player with border color and animation */
+#players.highlight-player li.active {
+  border-color: #f6e35a;
+  animation: pluse 2s infinite ease-in-out;
+}
+
+/* Changing color for active player name and symbol */
+#players.highlight-player li.active .player-name,
+#players.highlight-player li.active .player-symbol {
+  color: #f6e35a;
+}
+
+/* Styling buttons within players list, including width, border, background, color, font size, cursor, transition, padding, and text alignment */
+#players button {
+  background: none;
+  border: none;
+  width: 3rem;
+  font-size: 0.9rem;
+  color: #c3ba78;
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0.5rem 0.25rem;
+}
+/* Adding hover effect for buttons within players list */
+#players button:hover {
+  color: #f8ca31;
+}
+/* Defining base styles for player elements including border, padding, border-radius, and font weight */
+.player {
+  border: 2px solid transparent;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+/* Styling player names with display, size, color, text transformation, margin, padding, border-radius, text overflow, and alignment */
+.player-name {
+  display: inline-block;
+  width: 10rem;
+  font-size: 1rem;
+  color: #e1dec7;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0.5rem;
+  border-radius: 4px;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+/* Styling player input fields with font inheritance, size, border, padding, animation, background color, text alignment, and transformation */
+.player input {
+  font: inherit;
+  font-size: 1rem;
+  width: 8rem;
+  border: none;
+  margin: 0 1rem;
+  padding: 0.5rem;
+  animation: pluse-text 2s infinite;
+  background: #46432f;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+/* Setting margin and font size for player symbols while li is not active */
+.player-symbol {
+  margin-left: 1rem;
+  font-size: 1rem;
+  color: #524b16;
+}
+
+/* Removing list styling and margin for ordered lists */
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Defining layout for game board with flex properties and margin, padding */
+#game-board {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 3rem 0;
+  padding: 0;
+  flex-direction: column;
+}
+
+/* Styling ordered lists within game board with flex properties, margin, and padding */
+#game-board ol {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+/* Defining button styles within game board including size, border, background, color, font, cursor, and padding */
+#game-board button {
+  width: 8rem;
+  height: 8rem;
+  border: none;
+  background: #aca788;
+  color: #3f3b00;
+  font-size: 5rem;
+  cursor: pointer;
+  font-family: "Caprasimo", cursive;
+  padding: 1rem;
+}
+/* Styling game-over overlay with position, dimensions, layout, background color, and animation */
+#game-over {
+  background: rgba(40, 38, 32, 0.95);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.65, 0.52) forwards;
+}
+
+/* Styling h2 element within game-over overlay including font, size, text alignment, color, and margin */
+#game-over h2 {
+  font-family: "Caprasimo", cursive;
+  font-size: 4rem;
+  text-align: center;
+  color: #fcd256;
+  margin: 0;
+}
+
+/* Styling paragraph within game-over overlay including size, text alignment, and color */
+#game-over p {
+  font-size: 2rem;
+  text-align: center;
+  color: #e1dec7;
+}
+
+/* Styling button within game-over overlay including display, margin, font size, background, border, color, padding, border-radius, cursor, transition, and box shadow */
+#game-over button {
+  background: none;
+  display: block;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  border: 2px solid #fcd256;
+  color: #fcd256;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: all 0.2s color 0.2s;
+  box-shadow: 0 0 8px rgba(255, 187, 0, 0.4);
+}
+/* Adding hover effect for button within game-over overlay */
+#game-over button:hover {
+  background: #fcd256;
+  color: #3f3b00;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 187, 0, 0.8);
+}
+/* Setting maximum width, color, list styling, margin, and text alignment for log element */
+#log {
+  max-width: 20rem;
+  text-align: center;
+  margin: 2rem auto;
+  padding: 0;
+  list-style-type: none;
+  color: #3f3b00;
+}
+/* Animating list items within log element including border-radius, animation, and margin */
+#log li{
+  border-radius: 4px;
+  animation: slide-in-from-left 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  margin: 0.75rem;
+}
+
+/* Defining slide-in-from-left animation with opacity and transform properties */
+@keyframes slide-in-from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Defining pulse-text animation with color transition */
+@keyframes pluse-text {
+  0% {
+    color: #e1edc7;
+  }
+  50% {
+    color: #9f9d83;
+  }
+  100% {
+    color: #e1edc7;
+  }
+}
+
+/* Defining pulse animation for border color and box shadow transition */
+@keyframes pluse {
+  0% {
+    border-color: #f6e35a;
+    box-shadow: 0 0 0 0 rgba(246, 277, 90, 0.4);
+  }
+  50% {
+    border-color: #f8e031;
+    box-shadow: 0 0 0 0.5rem rgba(248, 165, 49, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(246, 277, 90, 1);
+  }
+}
+/* Defining pop-in animation for scaling and opacity transition */
+
+/* Fancy animation for showing the "Game Over" element */
+
+/* Defining pop-in animation */
+@keyframes pop-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}

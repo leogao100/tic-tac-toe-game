@@ -28,7 +28,7 @@ const Player: React.FC<PlayerProps> = ({
     setPlayerName(event.target.value);
   }
 
-  let editablePlayerName = <span>{playerName}</span>;
+  let editablePlayerName = <span className="player-name">{playerName}</span>;
 
   if (isEditing) {
     editablePlayerName = (
@@ -38,9 +38,9 @@ const Player: React.FC<PlayerProps> = ({
 
   return (
     <li className={isActive ? "active" : undefined}>
-      <span>
+      <span className="player">
         {editablePlayerName}
-        <span>{symbol}</span>
+        <span className="player-symbol" >{symbol}</span>
       </span>
       <button onClick={handleEditClick}>{isEditing ? "Save" : "Edit"}</button>
     </li>

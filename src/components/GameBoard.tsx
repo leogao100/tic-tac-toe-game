@@ -6,7 +6,7 @@ interface GameBoardProps {
 }
 
 const GameBoard: React.FC<GameBoardProps> = ({ onSelectSquare, board }) => {
-    return <ol>
+    return <ol id="game-board">
         {board.map((row, rowIndex) => (
             <li key={rowIndex}>
                 <ol>

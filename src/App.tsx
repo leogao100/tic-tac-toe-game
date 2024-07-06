@@ -76,9 +76,10 @@ const App: React.FC = () => {
   >([]);
 
   const activePlayer = deriveActivePlayer(gameTurns);
+  console.log(gameTurns);
 
   const gameBoard = deriveGameBoard(gameTurns);
-
+  
   const winner = deriveWinner(gameBoard, players);
 
   const hasDraw = gameTurns.length === 9 && !winner;
@@ -111,8 +112,8 @@ const App: React.FC = () => {
 
   return (
     <main>
-      <div>
-        <ol>
+      <div id="game-container">
+        <ol id="players" className="highlight-player" >
           <Player
             initialName={PLAYERS.X}
             symbol="X"
